@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>G.C.F Music</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <!--  for font awesome fonts  -->
+    <script src="https://kit.fontawesome.com/6c1c97bb72.js" crossorigin="anonymous"></script>
+
+
+<!--  Complete CSS  -->
+
+<style>
+
+body {
+	margin: 0px;
+	font-family: Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic;
+	color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 8px;
+}
+
+a {
+	text-decoration: none;
+	color: lightgrey;
+}
+
+/* top navigation bar */
+.navigation-bar {
+	height: auto;
+	width: auto;
+	background-image: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+	padding-left: 5%;
+	padding-right: 5%;
+	transition: all ease-in-out 1s; 
+}
+
+.navigation-bar > div {
+	display: inline-block;
+}
+
+/* website logo image */
+.website-logo img {
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+}
+
+.website-name h4 {
+	color: white;
+}
+
+/* website title and general description */
+.title-combo > div {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+/* search bar */
+.search-bar {
+	width: 20%;
+	position: relative;
+}
+
+.search-bar input {
+	width: 100%;
+	font-size: 16px;
+	text-decoration: none;
+	border-radius: 18px;
+	border: none;
+	padding: 5px;
+	font-weight: 500;
+	text-align: center;
+	transition: all ease-in-out 0.1s;
+}
+
+.search-ico {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.mic-ico {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+/* search icon */
+.search-bar > div:nth-child(1) {
+	display: inline-block;
+	position: absolute;
+	width: min-content;
+	left: 5%;
+	top: 10%;
+	transition: all ease-in-out 0.1s;
+}
+
+/* mic icon */
+.search-bar > div:nth-child(3) {
+	display: inline-block;
+	position: absolute;
+	width: min-content;
+	right: 0%;
+	top: 10%;
+	transition: all ease-in-out 0.1s;
+}
+
+input:focus {
+	outline: none;
+}
+
+
+/* notification bell image */
+.notification-bell img {
+	width: 30px;
+	height: 30px;
+}
+
+/* profile picture of the user */
+.profile-picture img {
+	width: 45px;
+	height: 45px;
+	border-radius: 100%;
+}
+
+
+/* main */
+
+main {
+	width: 100%;
+	padding: 0% 3%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	transition: all ease-in-out 1s;
+}
+
+.aside {
+	display: inline-block;
+	overflow: hidden;
+}
+
+/* section one of the main part */
+.section-1 {
+	width: 70%;
+	height: 86vh;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+/* Playlists under artist */
+
+.small-container{width:100%;
+height: 20%;
+display:flex;
+background-color: #686868;
+margin-top: 2%}
+
+.small-container p{color: white;
+font-size:16px;
+padding-top:3%;
+padding-left: 2%;
+}
+
+.music-image{width: 10%;
+heigth: 80%;
+margin-left: 2%;
+background-size: cover;
+}
+
+.song-name{width: 60%; 
+height: 100%;
+margin-left: 2%;
+}
+
+.download-icon{width: 5%;
+height:50%;
+color: white;
+margin-left: 2%;
+align-self: center;
+}
+
+.icons{width: 5%;
+height:50%;
+color: white;
+margin-left: 2%;
+align-self: center;
+font-size:24}
+
+/* overflow should be scrollable but the scroll bar should be hidden*/
+.section-1::-webkit-scrollbar {
+	display: none;
+}
+
+/* section 2 of the main part */
+.section-2 {
+	width: 30%;
+	height: 85vh;
+}
+
+/* section 2 starts here */
+
+/* more button */
+label[for="more"] {
+	display: none;
+	position: absolute;
+	right: 0%;
+	top: 20%;
+	padding-bottom: 5px;
+	z-index: 4;
+	width: 70px;
+	font-size: 20px;
+	height: 25px;
+	text-align: center;
+	box-shadow: 0px 0px 2px 1px white;
+	background-image: linear-gradient(45deg, red -50%, blue 150%);
+}
+
+/* when the checkbox corresponding to the "more" button is checked, then the section becomes visible */
+/* but at a normal resolution, its display will be none */
+label[for="more"]:checked ~ input {
+	display: none;
+}
+
+/* ASIDE SECTION 2 */
+.heading {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 12%;
+}
+
+/* heading for the second  aside section */
+.heading h4 a {
+	text-decoration: none;
+	color: #18D860;
+}
+
+/* these are the properties for the queue options box. the queue options box will be visible when one clicks on the queue button */
+.queue-options {
+	position: fixed;
+	right: 4%;
+	top: 14%;
+	background-color: black;
+	width: 10%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 1%;
+	box-sizing: border-box;
+	overflow: hidden;
+	z-index: 2; /* to cover the heart icon */
+	opacity: 0;
+	transform: scale(0);
+	transition: all ease-in-out 0.25s;
+}
+
+/* when the queue option box becomes target */
+#queue-option-box:target {
+	opacity: 1;
+	transform: scale(1);
+}
+.queue-options {
+	color: black;
+}
+.queue-options p {
+	text-align: center;
+}
+.queue-options p a {
+	text-decoration: none;
+}
+
+/* horizontal line in queue options box */
+hr {
+	width: 90%;
+	color: black;
+}
+
+/* playlist content */
+.playlist-content {
+	width: 100%;
+	height: 75vh;
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	cursor: pointer;
+}
+
+/* playlist content container scroll bar */
+.playlist-content::-webkit-scrollbar {
+	display: none;
+}
+
+/* left content contains the image, index and name of the song */
+.left-content {
+	display: flex;
+	height: 100%;
+	width: 70%;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+.left-content > div:nth-child(3) {
+	margin-left: 12px;
+	width: 50%;
+	word-wrap: break-word;
+}
+
+/* right content contains the heart icon */
+.right-content {
+	position: relative;
+	bottom: 62%;
+	left: 90%;
+	width: min-content;
+	height: 20px;
+	color: white;
+	font-size: 20px;
+}
+.right-content i {
+	transition: all ease-in-out 0.1s;
+}
+.right-content i:hover {
+	color: red;
+}
+
+/* class for a partilcular item in playlist */
+.playlist-item {
+	width: 90%;
+	height: auto;
+	padding: 0px 1%;
+	box-sizing: border-box;
+	margin: 1%;
+}
+
+.playlist-item-2 {
+	width: 90%;
+	height: auto;
+	padding: 0px 1%;
+	box-sizing: border-box;
+	margin: 1%;
+}
+
+
+/* animation for glowing heart in each of the playlist items */
+@keyframes glowing-heart {
+	0% {
+		color: yellow;
+	}
+	50% {
+		color: orangered;
+	}
+	100% {
+		color: red;
+	}
+}
+
+/* hover effect on heart */
+.playlist-item:hover .fa-heart {
+	animation-name: glowing-heart;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-duration: 1s;
+}
+
+.playlist-item-2:hover .fa-heart {
+	animation-name: glowing-heart;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-duration: 1s;
+}
+
+/* playlist items hovering effect */
+.playlist-item:hover {
+	box-shadow: 0px 0px 2px 1px white;
+}
+
+.playlist-item-2:hover {
+	box-shadow: 0px 0px 2px 1px white;
+}
+
+
+/* playlist item image */
+.playlist-item-2 img {
+	width: 80px;
+	height: 80px;
+}
+
+.playlist-item img {
+	width: 80px;
+	height: 80px;
+	border-radius:50%;
+}
+
+/* this will cover the playlist image. this can be called as a container for half of the items in the left part */
+.coverer {
+	width: 80px;
+	height: 80px;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Footer section starts here*/
+/* this is the container for the whole footer */
+footer {
+	position: absolute;
+	bottom: 1px;
+	width: 100%;
+	height: 60px;
+	background-color: #282828;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: center;
+	flex-wrap: nowrap;
+	padding: 0px 3%;
+	box-sizing: border-box;
+	z-index: 6;
+}
+
+/* footer is divided into 3 parts */
+/* 1. first part of the footer */
+.active-song-description {
+	/* border:1px solid white; */
+	height: 90%;
+	width: 25%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* the current song which is being played, this is the image container for that. */
+#song-image {
+	width: 50px;
+	height: 50px;
+	min-width: 50px;
+	min-height: 50px;
+}
+
+/* current song image */
+#song-image img {
+	width: 100%;
+	height: 100%;
+}
+
+/* heart and ban icon */
+.heart-and-ban-icon {
+	height: 100%;
+	padding-top: 4%;
+}
+
+/* song decscription */
+.song-desc {
+	margin-right: 1%;
+	margin-left: 1%;
+}
+
+/* song name */
+.song-desc div:nth-child(1) {
+	font-size: 14px;
+}
+
+/* song author */
+.song-desc div:nth-child(2) {
+	font-size: 12px;
+}
+
+/* 2. Second part of the footer*/
+.player {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+/* controls is the container for all the center controls of the player */
+.controls {
+	width: 40%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 20px;
+}
+/* this is the song-duration slider */
+#slider {
+	width: 100%;
+	font-size: 12px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5px;
+}
+/* ////////// */
+.time {
+	margin: 0px 10px;
+}
+
+/* adjusting the slider for better visuals */
+.slidecontainer {
+	width: 100%;
+}
+/* for audio and main center player */
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.5;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+/* hover effect for the slider */
+.slider:hover {
+	opacity: 1;
+}
+/* these are for adjusting the dimensions and default styling of the long-slider */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	background: #007bff;
+	cursor: pointer;
+}
+/* this is the circular thumb, which can be moved across the div */
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #4caf50;
+	cursor: pointer;
+}
+
+/* third part of the footer */
+/* this contains the extra icons and slider for volume */
+/* this is also a container */
+.extras {
+	width: 20%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* these are all the media queries for index.html page with the desktop first approach*/
+@media screen and (max-width: 1200px) {
+	/* animated favourites text will be hidden for this viewport width*/
+	.favs {
+		display: none !important;
+	}
+	/* reduced size of search bar */
+	.search-bar {
+		width: 30%;
+	}
+	input {
+		font-size: 11px !important;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	/* more button vil ve visible and section 2 will be hidden by default for this viewport */
+	label[for="more"] {
+		display: block;
+	}
+	/* hidden section 2 by default */
+	.section-2 {
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+		width: 300px;
+		height: 66vh;
+		background-color: #050043;
+		box-shadow: 0px 0px 2px 1px white;
+		right: 0px;
+		top: 23.5%;
+		z-index: 5;
+		overflow: scroll;
+		padding-left:10px;
+		transition: visibility ease-in-out 0.2s;
+		transition: opacity ease-in-out 0.2s;
+	}
+	.playlist-content {
+		overflow: visible;
+	}
+	/* re-adjusted the queue options box */
+	.queue-options {
+		position: absolute;
+		height: auto;
+		width: auto;
+		top: 7%;
+		right: 0%;
+	}
+
+	/* more button */
+	input[id="more"]:checked ~ .section-2 {
+		visibility: visible;
+		opacity: 1;
+	}
+	/* hide section 2 scrollbar */
+	.section-2::-webkit-scrollbar {
+		display: none;
+	}
+	/* when the section 2 is hidden, section-1 width becomes 100% to cover the whole page */
+	.section-1 {
+		width: 100%;
+	}
+	
+}
+
+@media screen and (max-width: 700px) {
+	/* in the screens of this width, generally volume buttons are provided at the side. */
+	/* so there is no need for the volume slider at this width. so i have removed them from the display */
+	/* footer section */
+	.extras > div:nth-child(3) {
+		display: none;
+	}
+	.extras > div:nth-child(4) {
+		display: none;
+	}
+	.outer-div {
+		width: 36vw;
+		height: 24vw;
+		min-width: 123px;
+		min-height: 82px;
+	}
+	.outer-div .inner-div span {
+		font-size: 4vw;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	/* this is the most important media query */
+	/* navigation bar section */
+	/* website image */
+	.website-logo img {
+		height: 30px;
+		width: 30px;
+	}
+	/* website name */
+	.website-name h1 {
+		font-size: 3vw;
+	}
+	/* website name */
+	.website-name h4 {
+		font-size: 2vw;
+	}
+	/* notification bell */
+	.notification-bell img {
+		width: 20px;
+		height: 20px;
+	}
+	/* profile picture */
+	.profile-picture img {
+		width: 30px;
+		height: 30px;
+	}
+	/* notification bell and profile picture */
+	.notification-bell,
+	.profile-picture {
+		margin-top: 8px;
+	}
+	/* this is the image in the footer section of the page. due to less space, it has to be removed at such lower resolutions. */
+	/* there is another option, but it will look messy and small */
+	#song-image {
+		display: none;
+	}
+	
+}
+
+</style>
+</head>
+
+<body bgcolor="#121212">
+    <!-- top navigation bar -->
+    <nav class="navigation-bar">
+        <!-- this div contains the logo and title os the page -->
+        <div class="title-combo">
+            <div class="website-logo">
+                <img src="http://negociagroup.com/wp-content/uploads/2017/05/logo-spotify.png">
+            </div>
+            <div class="website-name">
+                <h4>
+                    G.C.F Music
+                </h4>
+                <p>
+                    <small>Online Music Player</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- this is the animated favourites text -->
+        <div class="favs">
+            <h4>
+                Favourites
+            </h4>
+        </div>
+
+        <!-- this is for search bar -->
+        <div class="search-bar">
+            <div>
+            	<!-- magnifying glass icon-->
+                <i class="fas fa-search search-ico"></i>
+            </div>
+            <input type="text" name="search" placeholder="Search">
+            <div>
+
+                <!-- mic icon -->
+                <i class="fas fa-microphone mic-ico"></i>
+            </div>
+        </div>
+
+        <!-- notification-bell -->
+        <div class="notification-bell">
+            <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/bell-icon.png">
+
+        </div>
+
+        <!-- profile picture -->
+        <div class="profile-picture">
+            <img src="https://i.pinimg.com/236x/b5/1e/d9/b51ed955190c81f1a48c265e860d1bfc.jpg">
+        </div>
+    </nav>
+
+    <!-- center part of the webpage; divided into two sections-->
+    <main>
+        <!-- aside section 1 -->
+        <aside class="aside section-1">
+                <div id= "picture"  style= "background-image: url(https://lh3.googleusercontent.com/proxy/kpGGqjnvX4dTHNu6mtz_GKVEdQXL4Y_iKLnhET8Y_4r3dbyM0paYeRlQOX7zCmQs6AJe9ihaGImM43XyVAJTBnZw1wliTNrpsjhOtxzCO2UtRb7mEQ);background-size:cover;"> 
+		</div>
+
+		<div id= "des"><br>
+		<h2>BTS</h2>  
+
+		<p style= "opacity: 0.7; font-size: 14px"> Korean Boy Band <br> <small>38M Followers</small></p><br>
+		
+		<p>BTS (Korean: 방탄소년단; RR: Bangtan Sonyeondan), also known as the Bangtan Boys, is a seven-member South Korean boy band that began formation in 2010 and debuted in 2013 under Big Hit Entertainment. The septet—composed of RM, Jin, Suga, J-Hope, Jimin, V, and Jungkook—co-writes and co-produces much of their own output. Originally a hip hop group, their musical style has evolved to include a wide range of genres. Their lyrics, often focused on personal and social commentary, touch on the themes of mental health, troubles of school-age youth, loss, the journey towards loving oneself, and individualism. Their work features references to literature and psychological concepts and includes an alternative universe storyline.</p><br>
+
+		<div>
+		<input type= "button" value= "Play All"> 
+		</div>
+		
+		</div>
+
+		<div class="playlist-content">
+
+                <!-- first playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+
+                        <!-- index -->
+                        <div style="margin-right:4px;">
+                            01
+                        </div>
+                        <div class="coverer">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/BTS_-_Be_Cover.png/220px-BTS_-_Be_Cover.png">
+                        </div>
+
+                        <!-- name and artist -->
+                        <div>
+                            <div>
+                               <b>Dis-ease</b>
+                            </div>
+                            <p>
+                            	<small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- like button -->
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <!-- second playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+                        <div style="margin-right:4px;">
+                            02
+                        </div>
+                        <div class="coverer">
+                            <img src="https://images.genius.com/0d77c955dd9a6745043b132e02274c98.1000x1000x1.jpg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Euphoria</b>
+                            </div>
+                            <p>
+                            	<small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <!-- third playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+                        <div style="margin-right:4px;">
+                            03
+                        </div>
+                        <div class="coverer">
+                            <img src="http://pm1.narvii.com/5933/213707750a5e71a97e631632604620c8778c5181_hq.jpg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Butterfly</b>
+                            </div>
+                            <p>
+                                <small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <!-- fourth playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+                        <div style="margin-right:4px;">
+                            04
+                        </div>
+                        <div class="coverer">
+                            <img src="https://3.bp.blogspot.com/-9GC6J3r6LTk/WKCW7mgD_TI/AAAAAAAAJR0/wW4voFLXDD88Bz6n6vrUl75nXAjSO39gQCLcB/s1600/cover.jpg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Spring Day</b>
+                            </div>
+                            <p>
+                                <small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <!-- fifth playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+                        <div style="margin-right:4px;">
+                            05
+                        </div>
+                        <div class="coverer">
+                            <img src="https://0.soompi.io/wp-content/uploads/2017/09/12080213/bts-love-yourself-track-list-2.jpg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Serendipity</b>
+                            </div>
+                            <p>
+                                <small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <!-- sixth playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+                        <div style="margin-right:4px;">
+                            06
+                        </div>
+                        <div class="coverer">
+                            <img src="https://headlineplanet.com/home/wp-content/uploads/2020/06/BTS-The-Journey-Cover-2-758x758.jpg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Stay Gold</b>
+                            </div>
+                            <p>
+                                <small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <!-- seventh playlist item -->
+                <div class=playlist-item-2>
+                    <div class="left-content">
+                        <div style="margin-right:4px;">
+                            07
+                        </div>
+                        <div class="coverer">
+                            <img src="https://www.sbs.com.au/popasia/sites/sbs.com.au.popasia/files/styles/body_image/public/bts-wings-cover.jpg?itok=Pvbe9VrN&mtime=1475706454">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Outro: Wings</b>
+                            </div>
+                            <p>
+                                <small>BTS</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+		 </div>
+        </aside>
+        
+        <!-- section 2-->
+        <aside class="aside section-2">
+            <!-- this is the section heading part. the heading will be static -->
+            <div class="heading">
+                <h1>Similar Artists</h1>
+                <h4>
+                    <a href="#queue-option-box">Queue <i class="fas fa-chevron-circle-down"></i></a>
+                </h4>
+            </div>
+            
+            <!-- queue options -->
+            <div class="queue-options" id="queue-option-box">
+                <p><a href style="color: lightgrey; font-weight:bolder;">Playlists</a></p>
+                <hr>
+                <p><a href style="color: lightgrey; font-weight:bolder;">Favourite songs</a></p>
+                <hr>
+                <p><a href="#" style="color:red; font-weight:bolder;">Close</a></p>
+            </div>
+
+            <!-- content of the playlist -->
+            <div class="playlist-content">
+
+                <!-- first playlist item -->
+                <div class=playlist-item>
+                    <div class="left-content">
+
+                        <!-- index -->
+                        <div style="margin-right:6px;">
+                            
+                        </div>
+                        <div class="coverer">
+                            <img src="https://pm1.narvii.com/6291/b05b8a86bf56cf751be320e39fc29d8668dec0cf_hq.jpg">
+                        </div>
+
+                        <!-- artist -->
+                        <div>
+                            <div>
+                               <b>RM</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- second playlist item -->
+                <div class=playlist-item>
+                    <div class="left-content">
+                        <div style="margin-right:6px;">
+                            
+                        </div>
+                        <div class="coverer">
+                            <img src="https://lh3.googleusercontent.com/4sAZPV_5BQD_Es-PHQmJenpQxRyEMAvyxHrAekWmqF539U9uIu1w-fciWHtRYTrqLtFbSW-RaFuznaen0_VTA8P757g5Vq2rqQ=w1600-rj-nu-e365">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Agust D</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- third playlist item -->
+                <div class=playlist-item>
+                    <div class="left-content">
+                        <div style="margin-right:6px;">
+                            
+                        </div>
+                        <div class="coverer">
+                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9ccdfced-e839-42d5-a415-5966da9a4e31/dche19b-5f132a54-4c52-4bc2-9221-53235bac9d45.jpg/v1/fill/w_894,h_894,q_70,strp/j_hope___the_1st_mixtape___hope_world_by_diyeah9tee4_dche19b-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvOWNjZGZjZWQtZTgzOS00MmQ1LWE0MTUtNTk2NmRhOWE0ZTMxXC9kY2hlMTliLTVmMTMyYTU0LTRjNTItNGJjMi05MjIxLTUzMjM1YmFjOWQ0NS5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.--O1BpCHt5a_T3eScjd9N_Gi90jAPA741tSSwgIRKTg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>J-Hope</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fourth playlist item -->
+                <div class=playlist-item>
+                    <div class="left-content">
+                        <div style="margin-right:6px;">
+                            
+                        </div>
+                        <div class="coverer">
+                            <img src="https://qph.fs.quoracdn.net/main-qimg-5d91e33e85e971ca412d4f89f6bcde06-c">
+                        </div>
+                        <div>
+                            <div>
+                                <b>V</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fifth playlist item -->
+                <div class=playlist-item>
+                    <div class="left-content">
+                    	<div style="margin-right:6px;">
+                            
+                        </div>
+                        <div class="coverer">
+                            <img src="http://pm1.narvii.com/7109/ceb0b13056f575bb0e17b20be88e6b833d6cc5aer1-720-720v2_uhq.jpg">
+                        </div>
+                        <div>
+                            <div>
+                                <b>Jungkook</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+    
+    <!-- footer -->
+    <footer>
+        <div class="active-song-description">
+            <!-- song image -->
+            <div id="song-image">
+                <img src="https://celebmix.com/wp-content/uploads/2019/01/bts-v-releases-self-composed-song-on-soundcloud-01.jpg">
+            </div>
+
+            <!-- song name and artist -->
+            <div class="song-desc">
+                <div>
+                    <b>Scenery</b>
+                </div>
+                <div>
+                    <small>V</small>
+                </div>
+
+                <!-- heart icon -->
+            </div>
+            <div class="heart-and-ban-icon">
+                <span>
+                    <i class="far fa-heart"></i>
+                </span>
+            </div>
+        </div>
+
+        <!-- main player controls -->
+        <div class="player">
+            <div class="controls">
+                <div><i class="fas fa-random"></i></div>
+                <div><i class="fas fa-step-backward"></i></div>
+                <div><i class="fas fa-pause-circle"></i></div>
+                <div><i class="fas fa-step-forward"></i></div>
+                <div><i class="fas fa-redo"></i></div>
+            </div>
+            <!-- this is the slider -->
+            <div id="slider">
+
+                <!-- current time -->
+                <div class="time">
+                    1:17
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                </div>
+
+                <!-- total time -->
+                <div class="time">
+                    4:55
+                </div>
+            </div>
+        </div>
+
+        <!-- other icons -->
+        <div class="extras">
+            <div>
+                <i class="fas fa-list-ul"></i>
+            </div>
+            <div>
+                <i class="fas fa-laptop"></i>
+            </div>
+            <div>
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <div class="slidecontainer" style="width:30%;">
+                <input type="range" min="0" max="100" value="0" class="slider" id="myRange" style="margin-top:0px;">
+            </div>
+            <div>
+                <i class="fas fa-expand-alt"></i>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
